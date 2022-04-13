@@ -25,14 +25,13 @@ contract Doogi is ERC721, Ownable{
        return _tokenId;
     }
 
-    function baseURI() internal view virtual returns (string memory) {
+    function _baseURI() internal view virtual override returns (string memory) {
         return _baseTokenURI;
     }
 
     //update new base uri
-    function updateBaseURI(string memory newBaseURI) public returns (string memory) {
+    function updateBaseURI(string memory newBaseURI) public onlyOwner {
         _baseTokenURI=newBaseURI;
-        return _baseTokenURI;
     }
 
 
